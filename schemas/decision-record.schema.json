@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "decision-record.schema.json",
+  "title": "Governance Decision Record",
+  "type": "object",
+  "required": ["decision_id", "decision_type", "authority_ref", "evidence_state", "timestamp", "status"],
+  "properties": {
+    "decision_id": {"type": "string"},
+    "decision_type": {"type": "string"},
+    "authority_ref": {"type": "string"},
+    "evidence_state": {"enum": ["observed", "reported", "synthetic", "simulated", "verified", "disputed", "unknown"]},
+    "consent_ref": {"type": ["string", "null"]},
+    "scope": {"type": "string"},
+    "reversible": {"type": "boolean"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "reviewer": {"type": ["string", "null"]},
+    "status": {"enum": ["draft", "under_review", "approved", "rejected", "revoked"]},
+    "outcome_ref": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
